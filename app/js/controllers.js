@@ -185,7 +185,7 @@ angular.module('myApp.controllers', ['firebase.utils', 'simpleLogin', 'leaflet-d
       layer.setIcon(mouseoverMarker);
 
       $scope.$apply(function() {
-        $scope.hoveritem = layer.feature.properties.id;
+        $scope.hoveritem = ((layer.feature.properties.id).replace( /^\D+/g, '')); // regex to pull number out of string, whoah!
       })
     }
 
